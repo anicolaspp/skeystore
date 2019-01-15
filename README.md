@@ -44,5 +44,5 @@ Use the following command to build.
 sbt +assembly
 ```
 
-This command build agains `scala 2.11.8` so it can be used on `Apache Spark` and `scala 2.12.8`. It will generate 2 `.jar` 
+This command build against `scala 2.11.8` so it can be used on `Apache Spark` and `scala 2.12.8`. It will generate 2 `.jar` 
 outputs, one for each version.
