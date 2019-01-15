@@ -1,3 +1,5 @@
+package com.github.anicolas
+
 import java.io.{FileInputStream, FileOutputStream}
 import java.security.KeyStore
 
@@ -50,5 +52,4 @@ object SecureStore {
       ks.store(fos, keyStorePassword.toCharArray)
     }
   }
-
 }

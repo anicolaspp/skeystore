@@ -1,4 +1,6 @@
+package test
 
+import com.github.anicolas.SecureStore
 import org.scalacheck.Prop.{BooleanOperators, forAll}
 import org.scalacheck.{Gen, Properties}
 
