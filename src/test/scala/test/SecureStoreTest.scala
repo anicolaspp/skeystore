@@ -32,7 +32,7 @@ object SecureStoreTest extends Properties("KeyStore") {
 
       store.addEntry("aaa", "bbb")
 
-      store.readPasswordForEntry(alias, storePassword).getOrElse("") != pwd
+      store.readPasswordForEntry(alias, storePassword).isEmpty
     }
   }
 }
