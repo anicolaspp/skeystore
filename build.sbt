@@ -13,3 +13,5 @@ libraryDependencies ++= Seq(
 )
 
 assemblyJarName := s"${name.value}-${scalaVersion.value}-${version.value}.jar"
+
+parallelExecution in (test) := false

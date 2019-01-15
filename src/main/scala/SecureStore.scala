@@ -4,9 +4,11 @@ import java.security.KeyStore
 import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.PBEKeySpec
 
+import scala.util.Try
+
 
 sealed trait SecureStore {
-  def readPasswordForEntry(alias: String, password: String): String
+  def readPasswordForEntry(alias: String, password: String): Option[String]
 
   def addEntry(entry: String, entryPassword: String): Unit
 }
@@ -21,7 +23,8 @@ object SecureStore {
 
     def addEntry(entry: String, entryPassword: String): Unit = addEntryToKeyStore(entry, entryPassword)
 
-    override def readPasswordForEntry(alias: String, password: String): String = getPasswordFromKeystore(alias)
+    override def readPasswordForEntry(alias: String, password: String): Option[String] =
+      Try { getPasswordFromKeystore(alias) }.toOption
 
     private def getPasswordFromKeystore(entry: String) = {
       val ks = KeyStore.getInstance(keyStoreType)
@@ -47,4 +50,5 @@ object SecureStore {
       ks.store(fos, keyStorePassword.toCharArray)
     }
   }
+
 }
